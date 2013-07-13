@@ -1,15 +1,8 @@
 require 'compass-rails/patches/static_compiler'
 
-module Sass::Script::Functions
-  def generated_image_url(path, only_path = nil)
-    asset_url(path, Sass::Script::String.new("image"))
-  end
-end
-
-
 module Compass::RailsImageFunctionPatch
   private
-  
+
   def image_path_for_size(image_file)
     begin
       file = ::Rails.application.assets.find_asset(image_file)
